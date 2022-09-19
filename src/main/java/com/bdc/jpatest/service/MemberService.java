@@ -16,14 +16,11 @@ public class MemberService {
     private MemberJpaRepository memberRepository;
 
     public List<MemberVo> findAll() {
-        List<MemberVo> members = new ArrayList<>();
-        memberRepository.findAll().forEach(e -> members.add(e));
-        return members;
+        return new ArrayList<>(memberRepository.findAll());
     }
 
     public Optional<MemberVo> findById(Long mbrNo) {
-        Optional<MemberVo> member = memberRepository.findById(mbrNo);
-        return member;
+        return memberRepository.findById(mbrNo);
     }
 
     public void deleteById(Long mbrNo) {
